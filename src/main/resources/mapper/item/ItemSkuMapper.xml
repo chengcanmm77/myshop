@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+   "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bucket.shop.dal.mapper.itemsku.ItemSkuMapper">
+<resultMap id="ItemSkuMap" type="ItemSkuDo">
+	<result column="item_id" property="itemId" jdbcType="INTEGER" />
+	<result column="sku_id" property="skuId" jdbcType="INTEGER" />
+	<result column="spu_n_o" property="spuNO" jdbcType="VARCHAR" />
+	<result column="is_main" property="isMain" jdbcType="TINYINT" />
+	<result column="item_type" property="itemType" jdbcType="INTEGER" />
+	<result column="sale_count" property="saleCount" jdbcType="INTEGER" />
+	<result column="create_person" property="createPerson" jdbcType="VARCHAR" />
+	<result column="update_person" property="updatePerson" jdbcType="VARCHAR" />
+	<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+	<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+</resultMap>
+<resultMap id="ItemSkuVoMap" type="ItemSkuVo">
+	<result column="item_id" property="itemId" jdbcType="INTEGER" />
+	<result column="sku_id" property="skuId" jdbcType="INTEGER" />
+	<result column="spu_n_o" property="spuNO" jdbcType="VARCHAR" />
+	<result column="is_main" property="isMain" jdbcType="TINYINT" />
+	<result column="item_type" property="itemType" jdbcType="INTEGER" />
+	<result column="sale_count" property="saleCount" jdbcType="INTEGER" />
+	<result column="create_person" property="createPerson" jdbcType="VARCHAR" />
+	<result column="update_person" property="updatePerson" jdbcType="VARCHAR" />
+	<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+	<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+</resultMap>
+
+
+<sql id="all_column">
+	item_id,sku_id,spu_n_o,is_main,item_type,sale_count,create_person,update_person,create_time,update_time
+</sql>
+
+<insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="ItemSkuDo">
+	insert into item_item_sku(item_id,sku_id,spu_n_o,is_main,item_type,sale_count,create_person,update_person,create_time
+	,update_time
+	) values(#{itemId},#{skuId},#{spuNO},#{isMain},#{itemType},#{saleCount},#{createPerson},#{updatePerson},now()
+	,now()
+	)
+</insert>
+
+<select id="selectById" resultMap="ItemSkuMap">
+	 select <include refid="all_column"/> from item_item_sku where id=#{id} />
+</select>
+
+<select id="selectVoById" resultMap="ItemSkuVoMap">
+	 select <include refid="all_column"/> from item_item_sku where id=#{id} />
+</select>
+
+<select id="queryList" resultMap="ItemSkuMap">
+	 select <include refid="all_column"/> from item_item_sku where 1=1 and <include refid="whereSql"/> />
+</select>
+
+<select id="queryVoList" resultMap="ItemSkuVoMap">
+	 select <include refid="all_column"/> from item_item_sku where 1=1 and <include refid="whereSql"/> />
+</select>
+
+<select id="whereSql" >
+	<if test="skuId != null and skuId !=''">
+	sku_id=#{skuId},
+	</if>
+	<if test="spuNO != null and spuNO !=''">
+	spu_n_o=#{spuNO},
+	</if>
+	<if test="isMain != null and isMain !=''">
+	is_main=#{isMain},
+	</if>
+	<if test="itemType != null and itemType !=''">
+	item_type=#{itemType},
+	</if>
+	<if test="saleCount != null and saleCount !=''">
+	sale_count=#{saleCount},
+	</if>
+	<if test="createPerson != null and createPerson !=''">
+	create_person=#{createPerson},
+	</if>
+	<if test="updatePerson != null and updatePerson !=''">
+	update_person=#{updatePerson},
+	</if>
+	<if test="createTime != null and createTime !=''">
+	create_time=#{createTime},
+	</if>
+	<if test="updateTime != null and updateTime !=''">
+	update_time=#{updateTime},
+	</if>
+</select>
+
+<update id="updateById" parameterType="ItemSkuVo" >
+	update item_item_sku set 
+	<if test="skuId != null and skuId !=''">
+	sku_id=#{skuId},
+	</if>
+	<if test="spuNO != null and spuNO !=''">
+	spu_n_o=#{spuNO},
+	</if>
+	<if test="isMain != null and isMain !=''">
+	is_main=#{isMain},
+	</if>
+	<if test="itemType != null and itemType !=''">
+	item_type=#{itemType},
+	</if>
+	<if test="saleCount != null and saleCount !=''">
+	sale_count=#{saleCount},
+	</if>
+	<if test="createPerson != null and createPerson !=''">
+	create_person=#{createPerson},
+	</if>
+	<if test="updatePerson != null and updatePerson !=''">
+	update_person=#{updatePerson},
+	</if>
+	<if test="createTime != null and createTime !=''">
+	create_time=#{createTime},
+	</if>
+	<if test="updateTime != null and updateTime !=''">
+	update_time=#{updateTime},
+	</if>
+</update>
+
+<update id="updateForDeleteById">
+	 update item_item_sku set status=0 where id=#{id}
+</update>
+
+<delete id="deleteById">
+	 delete from item_item_sku where id=#{id}
+</delete>
+
+
+</mapper>

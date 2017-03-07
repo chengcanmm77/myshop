@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+   "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bucket.shop.dal.mapper.item.ItemMapper">
+<resultMap id="ItemMap" type="ItemDo">
+	<result column="item_id" property="itemId" jdbcType="INTEGER" />
+	<result column="brand_id" property="brandId" jdbcType="INTEGER" />
+	<result column="category_id" property="categoryId" jdbcType="INTEGER" />
+	<result column="category_code" property="categoryCode" jdbcType="VARCHAR" />
+	<result column="shop_id" property="shopId" jdbcType="INTEGER" />
+	<result column="template_id" property="templateId" jdbcType="INTEGER" />
+	<result column="item_name" property="itemName" jdbcType="VARCHAR" />
+	<result column="caption" property="caption" jdbcType="VARCHAR" />
+	<result column="item_code" property="itemCode" jdbcType="VARCHAR" />
+	<result column="market_price" property="marketPrice" jdbcType="INTEGER" />
+	<result column="sale_price" property="salePrice" jdbcType="INTEGER" />
+	<result column="app_price" property="appPrice" jdbcType="INTEGER" />
+	<result column="is_marketable" property="isMarketable" jdbcType="TINYINT" />
+	<result column="is_app_sale" property="isAppSale" jdbcType="TINYINT" />
+	<result column="is_web_sale" property="isWebSale" jdbcType="TINYINT" />
+	<result column="item_desc" property="itemDesc" jdbcType="VARCHAR" />
+	<result column="limit_num" property="limitNum" jdbcType="INTEGER" />
+	<result column="show_storage" property="showStorage" jdbcType="INTEGER" />
+	<result column="avl_storage" property="avlStorage" jdbcType="INTEGER" />
+	<result column="sync_storage" property="syncStorage" jdbcType="INTEGER" />
+	<result column="use_show_storage" property="useShowStorage" jdbcType="TINYINT" />
+	<result column="use_sync_storage" property="useSyncStorage" jdbcType="TINYINT" />
+	<result column="sale_type" property="saleType" jdbcType="INTEGER" />
+	<result column="item_type" property="itemType" jdbcType="INTEGER" />
+	<result column="status" property="status" jdbcType="INTEGER" />
+	<result column="def_receipt" property="defReceipt" jdbcType="INTEGER" />
+	<result column="version" property="version" jdbcType="INTEGER" />
+	<result column="is_purchase" property="isPurchase" jdbcType="INTEGER" />
+	<result column="purchase_start_time" property="purchaseStartTime" jdbcType="TIMESTAMP" />
+	<result column="purchase_end_time" property="purchaseEndTime" jdbcType="TIMESTAMP" />
+	<result column="purchase_is_repeat" property="purchaseIsRepeat" jdbcType="INTEGER" />
+	<result column="purchase_is_finished" property="purchaseIsFinished" jdbcType="INTEGER" />
+	<result column="on_marketable_time" property="onMarketableTime" jdbcType="TIMESTAMP" />
+	<result column="off_marketable_time" property="offMarketableTime" jdbcType="TIMESTAMP" />
+	<result column="data_source" property="dataSource" jdbcType="INTEGER" />
+	<result column="is_original" property="isOriginal" jdbcType="INTEGER" />
+	<result column="spu_n_o" property="spuNO" jdbcType="VARCHAR" />
+	<result column="buss_type" property="bussType" jdbcType="INTEGER" />
+	<result column="distributor_code" property="distributorCode" jdbcType="VARCHAR" />
+	<result column="distributor_name" property="distributorName" jdbcType="VARCHAR" />
+	<result column="month_sales" property="monthSales" jdbcType="INTEGER" />
+	<result column="spu_id" property="spuId" jdbcType="INTEGER" />
+	<result column="first_attribute_id" property="firstAttributeId" jdbcType="INTEGER" />
+	<result column="second_attribute_id" property="secondAttributeId" jdbcType="INTEGER" />
+	<result column="logistics_id" property="logisticsId" jdbcType="INTEGER" />
+	<result column="is_main_item" property="isMainItem" jdbcType="INTEGER" />
+</resultMap>
+<resultMap id="ItemVoMap" type="ItemVo">
+	<result column="item_id" property="itemId" jdbcType="INTEGER" />
+	<result column="brand_id" property="brandId" jdbcType="INTEGER" />
+	<result column="category_id" property="categoryId" jdbcType="INTEGER" />
+	<result column="category_code" property="categoryCode" jdbcType="VARCHAR" />
+	<result column="shop_id" property="shopId" jdbcType="INTEGER" />
+	<result column="template_id" property="templateId" jdbcType="INTEGER" />
+	<result column="item_name" property="itemName" jdbcType="VARCHAR" />
+	<result column="caption" property="caption" jdbcType="VARCHAR" />
+	<result column="item_code" property="itemCode" jdbcType="VARCHAR" />
+	<result column="market_price" property="marketPrice" jdbcType="INTEGER" />
+	<result column="sale_price" property="salePrice" jdbcType="INTEGER" />
+	<result column="app_price" property="appPrice" jdbcType="INTEGER" />
+	<result column="is_marketable" property="isMarketable" jdbcType="TINYINT" />
+	<result column="is_app_sale" property="isAppSale" jdbcType="TINYINT" />
+	<result column="is_web_sale" property="isWebSale" jdbcType="TINYINT" />
+	<result column="item_desc" property="itemDesc" jdbcType="VARCHAR" />
+	<result column="limit_num" property="limitNum" jdbcType="INTEGER" />
+	<result column="show_storage" property="showStorage" jdbcType="INTEGER" />
+	<result column="avl_storage" property="avlStorage" jdbcType="INTEGER" />
+	<result column="sync_storage" property="syncStorage" jdbcType="INTEGER" />
+	<result column="use_show_storage" property="useShowStorage" jdbcType="TINYINT" />
+	<result column="use_sync_storage" property="useSyncStorage" jdbcType="TINYINT" />
+	<result column="sale_type" property="saleType" jdbcType="INTEGER" />
+	<result column="item_type" property="itemType" jdbcType="INTEGER" />
+	<result column="status" property="status" jdbcType="INTEGER" />
+	<result column="def_receipt" property="defReceipt" jdbcType="INTEGER" />
+	<result column="version" property="version" jdbcType="INTEGER" />
+	<result column="is_purchase" property="isPurchase" jdbcType="INTEGER" />
+	<result column="purchase_start_time" property="purchaseStartTime" jdbcType="TIMESTAMP" />
+	<result column="purchase_end_time" property="purchaseEndTime" jdbcType="TIMESTAMP" />
+	<result column="purchase_is_repeat" property="purchaseIsRepeat" jdbcType="INTEGER" />
+	<result column="purchase_is_finished" property="purchaseIsFinished" jdbcType="INTEGER" />
+	<result column="on_marketable_time" property="onMarketableTime" jdbcType="TIMESTAMP" />
+	<result column="off_marketable_time" property="offMarketableTime" jdbcType="TIMESTAMP" />
+	<result column="data_source" property="dataSource" jdbcType="INTEGER" />
+	<result column="is_original" property="isOriginal" jdbcType="INTEGER" />
+	<result column="spu_n_o" property="spuNO" jdbcType="VARCHAR" />
+	<result column="buss_type" property="bussType" jdbcType="INTEGER" />
+	<result column="distributor_code" property="distributorCode" jdbcType="VARCHAR" />
+	<result column="distributor_name" property="distributorName" jdbcType="VARCHAR" />
+	<result column="month_sales" property="monthSales" jdbcType="INTEGER" />
+	<result column="spu_id" property="spuId" jdbcType="INTEGER" />
+	<result column="first_attribute_id" property="firstAttributeId" jdbcType="INTEGER" />
+	<result column="second_attribute_id" property="secondAttributeId" jdbcType="INTEGER" />
+	<result column="logistics_id" property="logisticsId" jdbcType="INTEGER" />
+	<result column="is_main_item" property="isMainItem" jdbcType="INTEGER" />
+</resultMap>
+
+
+<sql id="all_column">
+	item_id,brand_id,category_id,category_code,shop_id,template_id,item_name,caption,item_code,market_price,sale_price,app_price,is_marketable,is_app_sale,is_web_sale,item_desc,limit_num,show_storage,avl_storage,sync_storage,use_show_storage,use_sync_storage,sale_type,item_type,status,def_receipt,version,is_purchase,purchase_start_time,purchase_end_time,purchase_is_repeat,purchase_is_finished,on_marketable_time,off_marketable_time,data_source,is_original,spu_n_o,buss_type,distributor_code,distributor_name,month_sales,spu_id,first_attribute_id,second_attribute_id,logistics_id,is_main_item
+</sql>
+
+<insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="ItemDo">
+	insert into item_item(item_id,brand_id,category_id,category_code,shop_id,template_id,item_name,caption,item_code
+	,market_price,sale_price,app_price,is_marketable,is_app_sale,is_web_sale,item_desc,limit_num
+	,show_storage,avl_storage,sync_storage,use_show_storage,use_sync_storage,sale_type,item_type,status
+	,def_receipt,version,is_purchase,purchase_start_time,purchase_end_time,purchase_is_repeat,purchase_is_finished,on_marketable_time
+	,off_marketable_time,data_source,is_original,spu_n_o,buss_type,distributor_code,distributor_name,month_sales
+	,spu_id,first_attribute_id,second_attribute_id,logistics_id,is_main_item
+	) values(#{itemId},#{brandId},#{categoryId},#{categoryCode},#{shopId},#{templateId},#{itemName},#{caption},#{itemCode}
+	,#{marketPrice},#{salePrice},#{appPrice},#{isMarketable},#{isAppSale},#{isWebSale},#{itemDesc},#{limitNum}
+	,#{showStorage},#{avlStorage},#{syncStorage},#{useShowStorage},#{useSyncStorage},#{saleType},#{itemType},#{status}
+	,#{defReceipt},#{version},#{isPurchase},#{purchaseStartTime},#{purchaseEndTime},#{purchaseIsRepeat},#{purchaseIsFinished},#{onMarketableTime}
+	,#{offMarketableTime},#{dataSource},#{isOriginal},#{spuNO},#{bussType},#{distributorCode},#{distributorName},#{monthSales}
+	,#{spuId},#{firstAttributeId},#{secondAttributeId},#{logisticsId},#{isMainItem}
+	)
+</insert>
+
+<select id="selectById" resultMap="ItemMap">
+	 select <include refid="all_column"/> from item_item where id=#{id} />
+</select>
+
+<select id="selectVoById" resultMap="ItemVoMap">
+	 select <include refid="all_column"/> from item_item where id=#{id} />
+</select>
+
+<select id="queryList" resultMap="ItemMap">
+	 select <include refid="all_column"/> from item_item where 1=1 and <include refid="whereSql"/> />
+</select>
+
+<select id="queryVoList" resultMap="ItemVoMap">
+	 select <include refid="all_column"/> from item_item where 1=1 and <include refid="whereSql"/> />
+</select>
+
+<select id="whereSql" >
+	<if test="brandId != null and brandId !=''">
+	brand_id=#{brandId},
+	</if>
+	<if test="categoryId != null and categoryId !=''">
+	category_id=#{categoryId},
+	</if>
+	<if test="categoryCode != null and categoryCode !=''">
+	category_code=#{categoryCode},
+	</if>
+	<if test="shopId != null and shopId !=''">
+	shop_id=#{shopId},
+	</if>
+	<if test="templateId != null and templateId !=''">
+	template_id=#{templateId},
+	</if>
+	<if test="itemName != null and itemName !=''">
+	item_name=#{itemName},
+	</if>
+	<if test="caption != null and caption !=''">
+	caption=#{caption},
+	</if>
+	<if test="itemCode != null and itemCode !=''">
+	item_code=#{itemCode},
+	</if>
+	<if test="marketPrice != null and marketPrice !=''">
+	market_price=#{marketPrice},
+	</if>
+	<if test="salePrice != null and salePrice !=''">
+	sale_price=#{salePrice},
+	</if>
+	<if test="appPrice != null and appPrice !=''">
+	app_price=#{appPrice},
+	</if>
+	<if test="isMarketable != null and isMarketable !=''">
+	is_marketable=#{isMarketable},
+	</if>
+	<if test="isAppSale != null and isAppSale !=''">
+	is_app_sale=#{isAppSale},
+	</if>
+	<if test="isWebSale != null and isWebSale !=''">
+	is_web_sale=#{isWebSale},
+	</if>
+	<if test="itemDesc != null and itemDesc !=''">
+	item_desc=#{itemDesc},
+	</if>
+	<if test="limitNum != null and limitNum !=''">
+	limit_num=#{limitNum},
+	</if>
+	<if test="showStorage != null and showStorage !=''">
+	show_storage=#{showStorage},
+	</if>
+	<if test="avlStorage != null and avlStorage !=''">
+	avl_storage=#{avlStorage},
+	</if>
+	<if test="syncStorage != null and syncStorage !=''">
+	sync_storage=#{syncStorage},
+	</if>
+	<if test="useShowStorage != null and useShowStorage !=''">
+	use_show_storage=#{useShowStorage},
+	</if>
+	<if test="useSyncStorage != null and useSyncStorage !=''">
+	use_sync_storage=#{useSyncStorage},
+	</if>
+	<if test="saleType != null and saleType !=''">
+	sale_type=#{saleType},
+	</if>
+	<if test="itemType != null and itemType !=''">
+	item_type=#{itemType},
+	</if>
+	<if test="status != null and status !=''">
+	status=#{status},
+	</if>
+	<if test="defReceipt != null and defReceipt !=''">
+	def_receipt=#{defReceipt},
+	</if>
+	<if test="version != null and version !=''">
+	version=#{version},
+	</if>
+	<if test="isPurchase != null and isPurchase !=''">
+	is_purchase=#{isPurchase},
+	</if>
+	<if test="purchaseStartTime != null and purchaseStartTime !=''">
+	purchase_start_time=#{purchaseStartTime},
+	</if>
+	<if test="purchaseEndTime != null and purchaseEndTime !=''">
+	purchase_end_time=#{purchaseEndTime},
+	</if>
+	<if test="purchaseIsRepeat != null and purchaseIsRepeat !=''">
+	purchase_is_repeat=#{purchaseIsRepeat},
+	</if>
+	<if test="purchaseIsFinished != null and purchaseIsFinished !=''">
+	purchase_is_finished=#{purchaseIsFinished},
+	</if>
+	<if test="onMarketableTime != null and onMarketableTime !=''">
+	on_marketable_time=#{onMarketableTime},
+	</if>
+	<if test="offMarketableTime != null and offMarketableTime !=''">
+	off_marketable_time=#{offMarketableTime},
+	</if>
+	<if test="dataSource != null and dataSource !=''">
+	data_source=#{dataSource},
+	</if>
+	<if test="isOriginal != null and isOriginal !=''">
+	is_original=#{isOriginal},
+	</if>
+	<if test="spuNO != null and spuNO !=''">
+	spu_n_o=#{spuNO},
+	</if>
+	<if test="bussType != null and bussType !=''">
+	buss_type=#{bussType},
+	</if>
+	<if test="distributorCode != null and distributorCode !=''">
+	distributor_code=#{distributorCode},
+	</if>
+	<if test="distributorName != null and distributorName !=''">
+	distributor_name=#{distributorName},
+	</if>
+	<if test="monthSales != null and monthSales !=''">
+	month_sales=#{monthSales},
+	</if>
+	<if test="spuId != null and spuId !=''">
+	spu_id=#{spuId},
+	</if>
+	<if test="firstAttributeId != null and firstAttributeId !=''">
+	first_attribute_id=#{firstAttributeId},
+	</if>
+	<if test="secondAttributeId != null and secondAttributeId !=''">
+	second_attribute_id=#{secondAttributeId},
+	</if>
+	<if test="logisticsId != null and logisticsId !=''">
+	logistics_id=#{logisticsId},
+	</if>
+	<if test="isMainItem != null and isMainItem !=''">
+	is_main_item=#{isMainItem},
+	</if>
+</select>
+
+<update id="updateById" parameterType="ItemVo" >
+	update item_item set 
+	<if test="brandId != null and brandId !=''">
+	brand_id=#{brandId},
+	</if>
+	<if test="categoryId != null and categoryId !=''">
+	category_id=#{categoryId},
+	</if>
+	<if test="categoryCode != null and categoryCode !=''">
+	category_code=#{categoryCode},
+	</if>
+	<if test="shopId != null and shopId !=''">
+	shop_id=#{shopId},
+	</if>
+	<if test="templateId != null and templateId !=''">
+	template_id=#{templateId},
+	</if>
+	<if test="itemName != null and itemName !=''">
+	item_name=#{itemName},
+	</if>
+	<if test="caption != null and caption !=''">
+	caption=#{caption},
+	</if>
+	<if test="itemCode != null and itemCode !=''">
+	item_code=#{itemCode},
+	</if>
+	<if test="marketPrice != null and marketPrice !=''">
+	market_price=#{marketPrice},
+	</if>
+	<if test="salePrice != null and salePrice !=''">
+	sale_price=#{salePrice},
+	</if>
+	<if test="appPrice != null and appPrice !=''">
+	app_price=#{appPrice},
+	</if>
+	<if test="isMarketable != null and isMarketable !=''">
+	is_marketable=#{isMarketable},
+	</if>
+	<if test="isAppSale != null and isAppSale !=''">
+	is_app_sale=#{isAppSale},
+	</if>
+	<if test="isWebSale != null and isWebSale !=''">
+	is_web_sale=#{isWebSale},
+	</if>
+	<if test="itemDesc != null and itemDesc !=''">
+	item_desc=#{itemDesc},
+	</if>
+	<if test="limitNum != null and limitNum !=''">
+	limit_num=#{limitNum},
+	</if>
+	<if test="showStorage != null and showStorage !=''">
+	show_storage=#{showStorage},
+	</if>
+	<if test="avlStorage != null and avlStorage !=''">
+	avl_storage=#{avlStorage},
+	</if>
+	<if test="syncStorage != null and syncStorage !=''">
+	sync_storage=#{syncStorage},
+	</if>
+	<if test="useShowStorage != null and useShowStorage !=''">
+	use_show_storage=#{useShowStorage},
+	</if>
+	<if test="useSyncStorage != null and useSyncStorage !=''">
+	use_sync_storage=#{useSyncStorage},
+	</if>
+	<if test="saleType != null and saleType !=''">
+	sale_type=#{saleType},
+	</if>
+	<if test="itemType != null and itemType !=''">
+	item_type=#{itemType},
+	</if>
+	<if test="status != null and status !=''">
+	status=#{status},
+	</if>
+	<if test="defReceipt != null and defReceipt !=''">
+	def_receipt=#{defReceipt},
+	</if>
+	<if test="version != null and version !=''">
+	version=#{version},
+	</if>
+	<if test="isPurchase != null and isPurchase !=''">
+	is_purchase=#{isPurchase},
+	</if>
+	<if test="purchaseStartTime != null and purchaseStartTime !=''">
+	purchase_start_time=#{purchaseStartTime},
+	</if>
+	<if test="purchaseEndTime != null and purchaseEndTime !=''">
+	purchase_end_time=#{purchaseEndTime},
+	</if>
+	<if test="purchaseIsRepeat != null and purchaseIsRepeat !=''">
+	purchase_is_repeat=#{purchaseIsRepeat},
+	</if>
+	<if test="purchaseIsFinished != null and purchaseIsFinished !=''">
+	purchase_is_finished=#{purchaseIsFinished},
+	</if>
+	<if test="onMarketableTime != null and onMarketableTime !=''">
+	on_marketable_time=#{onMarketableTime},
+	</if>
+	<if test="offMarketableTime != null and offMarketableTime !=''">
+	off_marketable_time=#{offMarketableTime},
+	</if>
+	<if test="dataSource != null and dataSource !=''">
+	data_source=#{dataSource},
+	</if>
+	<if test="isOriginal != null and isOriginal !=''">
+	is_original=#{isOriginal},
+	</if>
+	<if test="spuNO != null and spuNO !=''">
+	spu_n_o=#{spuNO},
+	</if>
+	<if test="bussType != null and bussType !=''">
+	buss_type=#{bussType},
+	</if>
+	<if test="distributorCode != null and distributorCode !=''">
+	distributor_code=#{distributorCode},
+	</if>
+	<if test="distributorName != null and distributorName !=''">
+	distributor_name=#{distributorName},
+	</if>
+	<if test="monthSales != null and monthSales !=''">
+	month_sales=#{monthSales},
+	</if>
+	<if test="spuId != null and spuId !=''">
+	spu_id=#{spuId},
+	</if>
+	<if test="firstAttributeId != null and firstAttributeId !=''">
+	first_attribute_id=#{firstAttributeId},
+	</if>
+	<if test="secondAttributeId != null and secondAttributeId !=''">
+	second_attribute_id=#{secondAttributeId},
+	</if>
+	<if test="logisticsId != null and logisticsId !=''">
+	logistics_id=#{logisticsId},
+	</if>
+	<if test="isMainItem != null and isMainItem !=''">
+	is_main_item=#{isMainItem},
+	</if>
+</update>
+
+<update id="updateForDeleteById">
+	 update item_item set status=0 where id=#{id}
+</update>
+
+<delete id="deleteById">
+	 delete from item_item where id=#{id}
+</delete>
+
+</mapper>

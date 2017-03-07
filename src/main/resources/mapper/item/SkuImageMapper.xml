@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+   "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bucket.shop.dal.mapper.skuimage.SkuImageMapper">
+<resultMap id="SkuImageMap" type="SkuImageDo">
+	<result column="sku_image_id" property="skuImageId" jdbcType="INTEGER" />
+	<result column="sku_id" property="skuId" jdbcType="INTEGER" />
+	<result column="type" property="type" jdbcType="INTEGER" />
+	<result column="image_url" property="imageUrl" jdbcType="VARCHAR" />
+	<result column="title" property="title" jdbcType="VARCHAR" />
+	<result column="img_order" property="imgOrder" jdbcType="INTEGER" />
+	<result column="original" property="original" jdbcType="VARCHAR" />
+	<result column="large" property="large" jdbcType="VARCHAR" />
+	<result column="medium" property="medium" jdbcType="VARCHAR" />
+	<result column="thumbnail" property="thumbnail" jdbcType="VARCHAR" />
+</resultMap>
+<resultMap id="SkuImageVoMap" type="SkuImageVo">
+	<result column="sku_image_id" property="skuImageId" jdbcType="INTEGER" />
+	<result column="sku_id" property="skuId" jdbcType="INTEGER" />
+	<result column="type" property="type" jdbcType="INTEGER" />
+	<result column="image_url" property="imageUrl" jdbcType="VARCHAR" />
+	<result column="title" property="title" jdbcType="VARCHAR" />
+	<result column="img_order" property="imgOrder" jdbcType="INTEGER" />
+	<result column="original" property="original" jdbcType="VARCHAR" />
+	<result column="large" property="large" jdbcType="VARCHAR" />
+	<result column="medium" property="medium" jdbcType="VARCHAR" />
+	<result column="thumbnail" property="thumbnail" jdbcType="VARCHAR" />
+</resultMap>
+
+
+<sql id="all_column">
+	sku_image_id,sku_id,type,image_url,title,img_order,original,large,medium,thumbnail
+</sql>
+
+<insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="SkuImageDo">
+	insert into item.sku_image(sku_image_id,sku_id,type,image_url,title,img_order,original,large,medium
+	,thumbnail
+	) values(#{skuImageId},#{skuId},#{type},#{imageUrl},#{title},#{imgOrder},#{original},#{large},#{medium}
+	,#{thumbnail}
+	)
+</insert>
+
+<select id="selectById" resultMap="SkuImageMap">
+	 select <include refid="all_column"/> from item.sku_image where id=#{id} />
+</select>
+
+<select id="selectVoById" resultMap="SkuImageVoMap">
+	 select <include refid="all_column"/> from item.sku_image where id=#{id} />
+</select>
+
+<select id="queryList" resultMap="SkuImageMap">
+	 select <include refid="all_column"/> from item.sku_image where 1=1 and <include refid="whereSql"/> />
+</select>
+
+<select id="queryVoList" resultMap="SkuImageVoMap">
+	 select <include refid="all_column"/> from item.sku_image where 1=1 and <include refid="whereSql"/> />
+</select>
+
+<select id="whereSql" >
+	<if test="skuId != null and skuId !=''">
+	sku_id=#{skuId},
+	</if>
+	<if test="type != null and type !=''">
+	type=#{type},
+	</if>
+	<if test="imageUrl != null and imageUrl !=''">
+	image_url=#{imageUrl},
+	</if>
+	<if test="title != null and title !=''">
+	title=#{title},
+	</if>
+	<if test="imgOrder != null and imgOrder !=''">
+	img_order=#{imgOrder},
+	</if>
+	<if test="original != null and original !=''">
+	original=#{original},
+	</if>
+	<if test="large != null and large !=''">
+	large=#{large},
+	</if>
+	<if test="medium != null and medium !=''">
+	medium=#{medium},
+	</if>
+	<if test="thumbnail != null and thumbnail !=''">
+	thumbnail=#{thumbnail},
+	</if>
+</select>
+
+<update id="updateById" parameterType="SkuImageVo" >
+	update item.sku_image set 
+	<if test="skuId != null and skuId !=''">
+	sku_id=#{skuId},
+	</if>
+	<if test="type != null and type !=''">
+	type=#{type},
+	</if>
+	<if test="imageUrl != null and imageUrl !=''">
+	image_url=#{imageUrl},
+	</if>
+	<if test="title != null and title !=''">
+	title=#{title},
+	</if>
+	<if test="imgOrder != null and imgOrder !=''">
+	img_order=#{imgOrder},
+	</if>
+	<if test="original != null and original !=''">
+	original=#{original},
+	</if>
+	<if test="large != null and large !=''">
+	large=#{large},
+	</if>
+	<if test="medium != null and medium !=''">
+	medium=#{medium},
+	</if>
+	<if test="thumbnail != null and thumbnail !=''">
+	thumbnail=#{thumbnail},
+	</if>
+</update>
+
+<update id="updateForDeleteById">
+	 update item.sku_image set status=0 where id=#{id}
+</update>
+
+<delete id="deleteById">
+	 delete from item.sku_image where id=#{id}
+</delete>
+
+</mapper>

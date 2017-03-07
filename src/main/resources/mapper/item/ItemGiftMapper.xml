@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+   "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bucket.shop.dal.mapper.itemgift.ItemGiftMapper">
+<resultMap id="ItemGiftMap" type="ItemGiftDo">
+	<result column="item_gift_id" property="itemGiftId" jdbcType="INTEGER" />
+	<result column="item_id" property="itemId" jdbcType="INTEGER" />
+	<result column="gift_id" property="giftId" jdbcType="INTEGER" />
+	<result column="gift_num" property="giftNum" jdbcType="INTEGER" />
+</resultMap>
+<resultMap id="ItemGiftVoMap" type="ItemGiftVo">
+	<result column="item_gift_id" property="itemGiftId" jdbcType="INTEGER" />
+	<result column="item_id" property="itemId" jdbcType="INTEGER" />
+	<result column="gift_id" property="giftId" jdbcType="INTEGER" />
+	<result column="gift_num" property="giftNum" jdbcType="INTEGER" />
+</resultMap>
+
+
+<sql id="all_column">
+	item_gift_id,item_id,gift_id,gift_num
+</sql>
+
+<insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="ItemGiftDo">
+	insert into item_item_gift(item_gift_id,item_id,gift_id,gift_num
+	) values(#{itemGiftId},#{itemId},#{giftId},#{giftNum}
+	)
+</insert>
+
+<select id="selectById" resultMap="ItemGiftMap">
+	 select <include refid="all_column"/> from item_item_gift where id=#{id} />
+</select>
+
+<select id="selectVoById" resultMap="ItemGiftVoMap">
+	 select <include refid="all_column"/> from item_item_gift where id=#{id} />
+</select>
+
+<select id="queryList" resultMap="ItemGiftMap">
+	 select <include refid="all_column"/> from item_item_gift where 1=1 and <include refid="whereSql"/> />
+</select>
+
+<select id="queryVoList" resultMap="ItemGiftVoMap">
+	 select <include refid="all_column"/> from item_item_gift where 1=1 and <include refid="whereSql"/> />
+</select>
+
+<select id="whereSql" >
+	<if test="itemId != null and itemId !=''">
+	item_id=#{itemId},
+	</if>
+	<if test="giftId != null and giftId !=''">
+	gift_id=#{giftId},
+	</if>
+	<if test="giftNum != null and giftNum !=''">
+	gift_num=#{giftNum},
+	</if>
+</select>
+
+<update id="updateById" parameterType="ItemGiftVo" >
+	update item_item_gift set 
+	<if test="itemId != null and itemId !=''">
+	item_id=#{itemId},
+	</if>
+	<if test="giftId != null and giftId !=''">
+	gift_id=#{giftId},
+	</if>
+	<if test="giftNum != null and giftNum !=''">
+	gift_num=#{giftNum},
+	</if>
+</update>
+
+<update id="updateForDeleteById">
+	 update item_item_gift set status=0 where id=#{id}
+</update>
+
+<delete id="deleteById">
+	 delete from item_item_gift where id=#{id}
+</delete>
+
+
+</mapper>
