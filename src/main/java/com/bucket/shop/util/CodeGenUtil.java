@@ -186,6 +186,18 @@ public class CodeGenUtil {
         sb.append("\n\t)");
         sb.append("\n</insert>");
         sb.append("\n\n");
+        
+        //gen udpate
+        sb.append("<update id=\"updateById\" resultType=\"long\">\n");
+        for (Field field : fields) {
+            String fieldName = field.getName();
+            String dbName = convertToDBName(fieldName);
+            sb.append("\t<if test=\"" + fieldName + " != null and " + fieldName + " !=''\">\n");
+            sb.append("\t" + dbName + "=#{" + dbName + "}\n");
+            sb.append("\t</if>\n");
+        }
+        sb.append("where id=#{id}\n");
+        sb.append("</update>\n");
 
         //gen select
         sb.append("<select id=\"selectById\" resultMap=\"" + modeName + "Map\">");
@@ -221,17 +233,6 @@ public class CodeGenUtil {
             sb.append("\t</if>\n");
         }
         sb.append("</sql>\n");
-
-        //gen udpate
-        sb.append("<update id=\"updateForDeleteById\" resultType=\"long\">\n");
-        for (Field field : fields) {
-            String fieldName = field.getName();
-            String dbName = convertToDBName(fieldName);
-            sb.append("\t<if test=\"" + fieldName + " != null and " + fieldName + " !=''\">\n");
-            sb.append("\t" + dbName + "=#{" + dbName + "}\n");
-            sb.append("\t</if>\n");
-        }
-        sb.append("</update>\n");
 
         //gen delete
         sb.append("<update id=\"updateForDeleteById\">\n");
