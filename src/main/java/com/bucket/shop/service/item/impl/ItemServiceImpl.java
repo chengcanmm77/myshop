@@ -4,13 +4,18 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.stereotype.Service;
+
 import com.bucket.shop.common.so.item.ItemSo;
+import com.bucket.shop.common.util.ConvetorUtil;
 import com.bucket.shop.common.vo.item.ItemVo;
 import com.bucket.shop.dal.dao.item.ItemDao;
 import com.bucket.shop.dal.dao.item.ItemGiftDao;
 import com.bucket.shop.dal.dao.item.ItemImageDao;
+import com.bucket.shop.model.item.ItemDo;
 import com.bucket.shop.service.item.ItemService;
 
+@Service
 public class ItemServiceImpl implements ItemService {
 
     @Resource
@@ -22,20 +27,22 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public ItemVo createItem(ItemVo vo) {
-        // TODO Auto-generated method stub
-        return null;
+        ItemDo itemDo = ConvetorUtil.conveter(vo, ItemDo.class);
+        itemDao.insert(itemDo);
+        ItemVo newVo = ConvetorUtil.conveter(itemDo, ItemVo.class);
+        return newVo;
     }
 
     @Override
     public ItemVo updateUpdateItem(ItemVo vo) {
-        // TODO Auto-generated method stub
-        return null;
+    	ItemDo itemDo = ConvetorUtil.conveter(vo, ItemDo.class);
+    	itemDao.update(itemDo);
+        return vo;
     }
 
     @Override
     public ItemVo getItemById(Long itemId) {
-        // TODO Auto-generated method stub
-        return null;
+        return itemDao.queryItemVoById(itemId);
     }
 
     @Override
@@ -46,8 +53,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public List<ItemVo> queryItemList(ItemSo so) {
-        // TODO Auto-generated method stub
-        return null;
+        return itemDao.queryItemVoList(so);
     }
 
     @Override
@@ -64,8 +70,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public Integer deleteItem(ItemSo so) {
-        // TODO Auto-generated method stub
-        return null;
+        return itemDao.delete(so);
     }
 
 }
