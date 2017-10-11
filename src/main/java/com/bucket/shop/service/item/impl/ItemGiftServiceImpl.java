@@ -2,14 +2,25 @@ package com.bucket.shop.service.item.impl;
 
 import java.util.List;
 
+import com.bucket.shop.common.util.ConvetorUtil;
 import com.bucket.shop.common.vo.item.ItemGiftVo;
+import com.bucket.shop.dal.dao.item.ItemGiftDao;
+import com.bucket.shop.model.item.ItemGiftDo;
 import com.bucket.shop.service.item.ItemGiftService;
+import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
+@Service
 public class ItemGiftServiceImpl implements ItemGiftService {
+
+    @Resource
+    private ItemGiftDao itemGiftDao;
 
     @Override
     public Integer insert(ItemGiftVo vo) {
-        // TODO Auto-generated method stub
+        ItemGiftDo itemGiftDo = ConvetorUtil.conveter(vo, ItemGiftDo.class);
+        itemGiftDao.insert(itemGiftDo);
         return null;
     }
 
@@ -27,7 +38,7 @@ public class ItemGiftServiceImpl implements ItemGiftService {
 
     @Override
     public Integer delete(Integer itemId) {
-        // TODO Auto-generated method stub
+        itemGiftDao.delete((long)itemId);
         return null;
     }
 
