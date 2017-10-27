@@ -1,16 +1,21 @@
 package com.bucket.shop.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class BaseDo {
+public class BaseDo implements Serializable{
 
-    private String createPerson;
+	private static final long serialVersionUID = 8218433860175764119L;
+
+	private String createPerson;
 
     private String updatePerson;
 
     private Date   createTime;
 
     private Date   updateTime;
+    
+    private Long   id;
 
     public String getCreatePerson() {
         return createPerson;
@@ -43,5 +48,15 @@ public class BaseDo {
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+    
+    
 
 }

@@ -6,9 +6,9 @@ import com.bucket.shop.model.BaseDo;
 
 public class MemberDo extends BaseDo {
 
-    private Long   id;
+	private static final long serialVersionUID = 7525531629537237739L;
 
-    private String userName;
+	private String userName;
 
     private String passWord;
 
@@ -29,14 +29,6 @@ public class MemberDo extends BaseDo {
     private String img;
 
     private Date   birthday;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getUserName() {
         return userName;
