@@ -3,10 +3,9 @@ package com.bucket.shop.model.item.attribute;
 import com.bucket.shop.model.BaseDo;
 
 public class BrandAttrValueRefDo extends BaseDo {
+	private static final long serialVersionUID = -288066015468834424L;
 
-    private Integer id;
-
-    private Integer brandId;
+	private Integer brandId;
 
     private String  brandName;
 
@@ -30,20 +29,12 @@ public class BrandAttrValueRefDo extends BaseDo {
         this.isRequired = isRequired;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
     public String getAttrName() {
         return attrName;
     }
 
     public void setAttrName(String attrName) {
         this.attrName = attrName;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public Integer getBrandId() {
