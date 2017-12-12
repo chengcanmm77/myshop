@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.bucket.shop.common.so.item.ItemImageSo;
 import com.bucket.shop.common.vo.item.ItemImageVo;
-import com.bucket.shop.model.dbo.item.ItemImageDo;
+import com.bucket.shop.model.dbo.goods.ItemImageDo;
 
 public interface ItemImageMapper {
 

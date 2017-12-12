@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+   "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bucket.shop.dal.mapper.item.attribute.AttributeValueMapper">
+	<resultMap id="AttributeValueMap" type="AttributeValueDo">
+		<result column="attr_value_id" property="attrValueId" jdbcType="INTEGER" />
+		<result column="attr_name_id" property="attrNameId" jdbcType="INTEGER" />
+		<result column="attr_value" property="attrValue" jdbcType="VARCHAR" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+		<result column="create_person" property="createPerson"
+			jdbcType="VARCHAR" />
+		<result column="update_person" property="updatePerson"
+			jdbcType="VARCHAR" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+		<result column="id" property="id" jdbcType="BIGINT" />
+		<result column="is_valid" property="isValid" jdbcType="INTEGER" />
+	</resultMap>
+
+
+	<resultMap id="AttributeValueVoMap" type="AttributeValueDoVo">
+		<result column="attr_value_id" property="attrValueId" jdbcType="INTEGER" />
+		<result column="attr_name_id" property="attrNameId" jdbcType="INTEGER" />
+		<result column="attr_value" property="attrValue" jdbcType="VARCHAR" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+		<result column="create_person" property="createPerson"
+			jdbcType="VARCHAR" />
+		<result column="update_person" property="updatePerson"
+			jdbcType="VARCHAR" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+		<result column="id" property="id" jdbcType="BIGINT" />
+		<result column="is_valid" property="isValid" jdbcType="INTEGER" />
+	</resultMap>
+
+
+	<sql id="all_column">
+		attr_value_id,attr_name_id,attr_value,status,create_person,update_person,create_time,update_time,id,is_valid
+	</sql>
+
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id"
+		parameterType="AttributeValueDo">
+		insert into
+		attribute_value(attr_value_id,attr_name_id,attr_value,status,create_person,update_person,create_time,update_time,id
+		,is_valid
+		)
+		values(#{attrValueId},#{attrNameId},#{attrValue},#{status},#{createPerson},#{updatePerson},now(),now(),#{id}
+		,#{isValid}
+		)
+	</insert>
+
+	<update id="updateById" resultType="long">
+		<if test="attrValueId != null and attrValueId !=''">
+			attr_value_id=#{attr_value_id}
+		</if>
+		<if test="attrNameId != null and attrNameId !=''">
+			attr_name_id=#{attr_name_id}
+		</if>
+		<if test="attrValue != null and attrValue !=''">
+			attr_value=#{attr_value}
+		</if>
+		<if test="status != null and status !=''">
+			status=#{status}
+		</if>
+		<if test="createPerson != null and createPerson !=''">
+			create_person=#{create_person}
+		</if>
+		<if test="updatePerson != null and updatePerson !=''">
+			update_person=#{update_person}
+		</if>
+		<if test="createTime != null and createTime !=''">
+			create_time=#{create_time}
+		</if>
+		<if test="updateTime != null and updateTime !=''">
+			update_time=#{update_time}
+		</if>
+		<if test="id != null and id !=''">
+			id=#{id}
+		</if>
+		<if test="isValid != null and isValid !=''">
+			is_valid=#{is_valid}
+		</if>
+		where id=#{id}
+	</update>
+	<select id="selectById" resultMap="AttributeValueMap">
+		select
+		<include refid="all_column" />
+		from attribute_value where id=#{id}
+	</select>
+
+	<select id="selectVoById" resultMap="AttributeValueVoMap">
+		select
+		<include refid="all_column" />
+		from attribute_value where id=#{id}
+	</select>
+
+	<select id="queryList" resultMap="AttributeValueMap">
+		select
+		<include refid="all_column" />
+		from attribute_value where 1=1 and
+		<include refid="whereSql" />
+		/>
+	</select>
+
+	<sql id="whereSql">
+		<if test="attrValueId != null and attrValueId !=''">
+			attr_value_id=#{attr_value_id}
+		</if>
+		<if test="attrNameId != null and attrNameId !=''">
+			attr_name_id=#{attr_name_id}
+		</if>
+		<if test="attrValue != null and attrValue !=''">
+			attr_value=#{attr_value}
+		</if>
+		<if test="status != null and status !=''">
+			status=#{status}
+		</if>
+		<if test="createPerson != null and createPerson !=''">
+			create_person=#{create_person}
+		</if>
+		<if test="updatePerson != null and updatePerson !=''">
+			update_person=#{update_person}
+		</if>
+		<if test="createTime != null and createTime !=''">
+			create_time=#{create_time}
+		</if>
+		<if test="updateTime != null and updateTime !=''">
+			update_time=#{update_time}
+		</if>
+		<if test="id != null and id !=''">
+			id=#{id}
+		</if>
+		<if test="isValid != null and isValid !=''">
+			is_valid=#{is_valid}
+		</if>
+	</sql>
+	<update id="updateForDeleteById">
+		update attribute_value set status=0 where id=#{id}
+	</update>
+
+	<delete id="updateForDeleteById">
+		delete from attribute_value where id=#{id}
+	</delete>
+	
+	<delete id="delAttributeValueByValue" parameterType="map">
+		delete from attribute_value where attr_name_id=#{attrNameId} and attr_value = #{attrValue}
+	</delete>
+
+	<select id="query" resultMap="AttributeValue" parameterType="map">
+		select <include refid="all_column" /> from attribute_value
+		<where>
+			<if test="attrNameId != null">
+				and attr_name_id=#{attrNameId}
+			</if>
+			<if test="attrValueId != null">
+				and attr_value_id=#{attrValueId}
+			</if>
+			<if test="attrValue != null">
+				and attr_value like CONCAT('%', #{attrValue}, '%')
+			</if>
+			<if test="status != null">
+				and status = #{status}
+			</if>
+		</where>
+    </select>
+    
+    <select id="queryByOption" parameterType="map" resultMap="AttributeValue">
+    	select <include refid="all_column" /> from attribute_value
+		<where>
+			<if test="attrNameId != null">
+				and attr_name_id=#{attrNameId}
+			</if>
+			<if test="attrValueId != null">
+				and attr_value_id=#{attrValueId}
+			</if>
+			<if test="status != null">
+				and status=#{status}
+			</if>
+		</where>
+    </select>
+    <!-- 根据属性值value查询属性值对象 -->
+    <select id="queryAttributeByValue" parameterType="AttributeValueDO" resultMap="AttributeValue">
+    	select <include refid="all_column" /> from attribute_value 
+		where attr_value=#{attrValue}
+    </select>
+    
+    <select id="queryAttrEqualValue" parameterType="map" resultMap="AttributeValue">
+    	select <include refid="all_column" /> from attribute_value
+		<where>
+			<if test="attrValue != null">
+				and attr_value=#{attrValue}
+			</if>
+			<if test="attrNameId != null">
+				and attr_name_id=#{attrNameId}
+			</if>
+		</where>
+    </select>
+    <select id="queryAttributeValueById" parameterType="java.lang.Long" resultMap="AttributeValue">
+      select <include refid="all_column" /> from attribute_value
+		where attr_value_id=#{attrValueId}
+    </select>
+
+</mapper>

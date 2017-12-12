@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.bucket.shop.common.so.item.ItemSo;
 import com.bucket.shop.common.vo.item.ItemVo;
-import com.bucket.shop.model.dbo.item.ItemDo;
+import com.bucket.shop.model.dbo.goods.ItemDo;
 
 public interface ItemMapper {
 

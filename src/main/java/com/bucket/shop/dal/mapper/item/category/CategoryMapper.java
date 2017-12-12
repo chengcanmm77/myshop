@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.bucket.shop.common.so.item.category.CategorySo;
 import com.bucket.shop.common.vo.item.category.CategoryVo;
-import com.bucket.shop.model.dbo.item.category.CategoryDo;
+import com.bucket.shop.model.dbo.goods.category.CategoryDo;
 
 public interface CategoryMapper {
 

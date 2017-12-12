@@ -1,10 +1,11 @@
-package com.bucket.shop.model.dbo.item.attribute;
+package com.bucket.shop.model.dbo.goods.attribute;
 
 import com.bucket.shop.model.dbo.BaseDo;
 
 public class AttributeNameDo extends BaseDo {
+	private static final long serialVersionUID = 3439718101234051916L;
 
-    /**
+	/**
      * 属性名ID
      */
     private Integer attrNameId;

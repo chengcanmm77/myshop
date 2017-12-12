@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.bucket.shop.common.so.item.ItemGiftSo;
 import com.bucket.shop.common.vo.item.ItemGiftVo;
 import com.bucket.shop.dal.mapper.item.ItemGiftMapper;
-import com.bucket.shop.model.dbo.item.ItemGiftDo;
+import com.bucket.shop.model.dbo.goods.ItemGiftDo;
 
 @Repository
 public class ItemGiftDao {

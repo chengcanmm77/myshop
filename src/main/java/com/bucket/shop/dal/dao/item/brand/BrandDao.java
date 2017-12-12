@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.bucket.shop.common.so.item.brand.BrandSo;
 import com.bucket.shop.common.vo.item.brand.BrandVo;
 import com.bucket.shop.dal.mapper.item.brand.BrandMapper;
-import com.bucket.shop.model.dbo.item.brand.BrandDo;
+import com.bucket.shop.model.dbo.goods.brand.BrandDo;
 
 @Repository
 public class BrandDao {

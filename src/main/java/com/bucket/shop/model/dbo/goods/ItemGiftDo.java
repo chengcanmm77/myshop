@@ -2,7 +2,7 @@
  * qccr.com Inc.
  * Copyright (c) 2014-2015 All Rights Reserved.
  */
-package com.bucket.shop.model.dbo.item;
+package com.bucket.shop.model.dbo.goods;
 
 /**
  * 商品赠品管理表

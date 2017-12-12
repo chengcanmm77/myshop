@@ -12,7 +12,7 @@ import com.bucket.shop.common.vo.item.ItemVo;
 import com.bucket.shop.dal.dao.item.ItemDao;
 import com.bucket.shop.dal.dao.item.ItemGiftDao;
 import com.bucket.shop.dal.dao.item.ItemImageDao;
-import com.bucket.shop.model.dbo.item.ItemDo;
+import com.bucket.shop.model.dbo.goods.ItemDo;
 import com.bucket.shop.service.goods.item.ItemService;
 
 @Service

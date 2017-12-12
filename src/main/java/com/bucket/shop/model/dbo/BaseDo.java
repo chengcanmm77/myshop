@@ -16,6 +16,8 @@ public class BaseDo implements Serializable{
     private Date   updateTime;
     
     private Long   id;
+    
+    private Integer isValid;
 
     public String getCreatePerson() {
         return createPerson;
@@ -56,7 +58,14 @@ public class BaseDo implements Serializable{
 	public void setId(Long id) {
 		this.id = id;
 	}
-    
+
+	public Integer getIsValid() {
+		return isValid;
+	}
+
+	public void setIsValid(Integer isValid) {
+		this.isValid = isValid;
+	}
     
 
 }

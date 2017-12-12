@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.bucket.shop.common.so.item.ItemGiftSo;
 import com.bucket.shop.common.vo.item.ItemGiftVo;
-import com.bucket.shop.model.dbo.item.ItemGiftDo;
+import com.bucket.shop.model.dbo.goods.ItemGiftDo;
 
 public interface ItemGiftMapper {
 

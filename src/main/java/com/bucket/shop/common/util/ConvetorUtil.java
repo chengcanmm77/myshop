@@ -1,10 +1,14 @@
 package com.bucket.shop.common.util;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeansException;
 
 import com.bucket.shop.common.vo.item.brand.BrandVo;
-import com.bucket.shop.model.dbo.item.brand.BrandDo;
+import com.bucket.shop.model.dbo.goods.brand.BrandDo;
 
 /**
  * 
@@ -29,6 +33,20 @@ public class ConvetorUtil {
             e.printStackTrace();
         }
         return t;
+    }
+    
+    @SuppressWarnings("rawtypes")
+    public static <T> List<T> conveterList(List list, Class<T> oriClz) {
+        if (CollectionUtils.isEmpty(list) || oriClz == null) {
+            return null;
+        }
+
+        List<T> result = new ArrayList<>(list.size());
+        for (Object pojo : list) {
+            result.add(conveter(pojo, oriClz));
+        }
+
+        return result;
     }
 
     public static void main(String[] args) {

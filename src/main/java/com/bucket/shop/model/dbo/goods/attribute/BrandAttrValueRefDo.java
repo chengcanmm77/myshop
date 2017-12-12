@@ -1,4 +1,4 @@
-package com.bucket.shop.model.dbo.item.attribute;
+package com.bucket.shop.model.dbo.goods.attribute;
 
 import com.bucket.shop.model.dbo.BaseDo;
 

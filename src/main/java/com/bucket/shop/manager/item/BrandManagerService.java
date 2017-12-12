@@ -2,7 +2,7 @@ package com.bucket.shop.manager.item;
 
 import java.util.List;
 import com.bucket.shop.common.vo.item.brand.BrandVo;
-import com.bucket.shop.model.dbo.item.brand.BrandDo;
+import com.bucket.shop.model.dbo.goods.brand.BrandDo;
 import com.bucket.shop.model.request.goods.BrandManagerQueryRequest;
 
 public interface BrandManagerService {

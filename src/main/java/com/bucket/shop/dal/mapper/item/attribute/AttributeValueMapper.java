@@ -1,10 +1,9 @@
 package com.bucket.shop.dal.mapper.item.attribute;
 
 import java.util.List;
+import java.util.Map;
 
-import com.bucket.shop.common.so.item.attribute.AttributeValueSo;
-import com.bucket.shop.common.vo.item.attribute.AttributeValueVo;
-import com.bucket.shop.model.dbo.item.attribute.AttributeValueDo;
+import com.bucket.shop.model.dbo.goods.attribute.AttributeValueDo;
 
 public interface AttributeValueMapper {
 
@@ -14,13 +13,18 @@ public interface AttributeValueMapper {
 
     public int delete(Long id);
 
-    public int delete(AttributeValueSo so);
-
     public AttributeValueDo queryDoById(Long id);
 
-    public AttributeValueVo queryVoById(Long id);
+    public  List<AttributeValueDo> query(Map<String,Object> map);
+   
+    public Integer batchDelAttributeValue(List<Integer> attrValueIds);
+   
+    public List<AttributeValueDo> queryByOption(Map<String, Object> paramsMap);
+    
+    public List<AttributeValueDo> queryAttributeByValue(AttributeValueDo attributeValueDO);
+    
+	public AttributeValueDo queryAttrEqualValue(Map<String, Object> paramsMap);
+	
+    public Integer updateBrandAttrStatus(AttributeValueDo attributeValueDO);
 
-    public List<AttributeValueDo> queryDoList(AttributeValueSo so);
-
-    public List<AttributeValueVo> queryVoList(AttributeValueSo so);
 }

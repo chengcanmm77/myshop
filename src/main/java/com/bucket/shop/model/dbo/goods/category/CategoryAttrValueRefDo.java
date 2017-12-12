@@ -1,4 +1,4 @@
-package com.bucket.shop.model.dbo.item.category;
+package com.bucket.shop.model.dbo.goods.category;
 
 import com.bucket.shop.model.dbo.BaseDo;
 

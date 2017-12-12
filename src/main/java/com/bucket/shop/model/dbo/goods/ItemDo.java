@@ -1,4 +1,4 @@
-package com.bucket.shop.model.dbo.item;
+package com.bucket.shop.model.dbo.goods;
 
 import java.util.Date;
 

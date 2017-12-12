@@ -2,7 +2,7 @@ package com.bucket.shop.manager.item;
 
 import java.util.List;
 
-import com.bucket.shop.model.dbo.item.category.CategoryDo;
+import com.bucket.shop.model.dbo.goods.category.CategoryDo;
 import com.bucket.shop.model.request.goods.CategoryManagerQueryRequest;
 
 public interface CategoryManagerService {

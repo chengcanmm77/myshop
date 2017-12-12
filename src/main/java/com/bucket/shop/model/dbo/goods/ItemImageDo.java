@@ -2,7 +2,7 @@
  * qccr.com Inc.
  * Copyright (c) 2014-2015 All Rights Reserved.
  */
-package com.bucket.shop.model.dbo.item;
+package com.bucket.shop.model.dbo.goods;
 
 import com.bucket.shop.model.dbo.BaseDo;
 

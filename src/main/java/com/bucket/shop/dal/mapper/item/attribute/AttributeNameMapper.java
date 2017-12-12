@@ -1,10 +1,10 @@
 package com.bucket.shop.dal.mapper.item.attribute;
 
 import java.util.List;
+import java.util.Map;
 
 import com.bucket.shop.common.so.item.attribute.AttributeNameSo;
-import com.bucket.shop.common.vo.item.attribute.AttributeNameVo;
-import com.bucket.shop.model.dbo.item.attribute.AttributeNameDo;
+import com.bucket.shop.model.dbo.goods.attribute.AttributeNameDo;
 
 public interface AttributeNameMapper {
 
@@ -18,9 +18,6 @@ public interface AttributeNameMapper {
 
     public AttributeNameDo queryDoById(Long id);
 
-    public AttributeNameVo queryVoById(Long id);
+    public List<AttributeNameDo> queryByCategoryIds(Map<String,Object> map);
 
-    public List<AttributeNameDo> queryDoList(AttributeNameSo so);
-
-    public List<AttributeNameVo> queryVoList(AttributeNameSo so);
 }

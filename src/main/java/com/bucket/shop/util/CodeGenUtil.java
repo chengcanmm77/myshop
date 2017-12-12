@@ -4,7 +4,12 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+
+import com.google.common.collect.Collections2;
+import com.google.common.collect.Lists;
 
 /**
  * 代码生成工具
@@ -97,7 +102,7 @@ public class CodeGenUtil {
     }
 
     public static void genXml(Class clazz) {
-        String tableName = convertToDBName(modelName.toLowerCase());
+        String tableName = convertToDBName(modelName).toLowerCase();
 
         StringBuilder sb = new StringBuilder();
         sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n");
@@ -293,8 +298,17 @@ public class CodeGenUtil {
 
             fields = merge;
         }
+        
+        List<Field> fieldList = new ArrayList<Field>();
+        for(Field field:fields){
+        	if(field.getName().equals("serialVersionUID")){
+        		continue;
+        	}
+        	fieldList.add(field);
+        }
 
-        return fields;
+        Field[] fielddd = new Field[fieldList.size()];
+        return fieldList.toArray(fielddd);
     }
 
     private static String convertToDBName(String name) {
