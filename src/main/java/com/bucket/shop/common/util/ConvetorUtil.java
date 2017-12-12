@@ -4,7 +4,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeansException;
 
 import com.bucket.shop.common.vo.item.brand.BrandVo;
-import com.bucket.shop.model.item.brand.BrandDo;
+import com.bucket.shop.model.dbo.item.brand.BrandDo;
 
 /**
  * 

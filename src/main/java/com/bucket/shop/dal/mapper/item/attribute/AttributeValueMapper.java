@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.bucket.shop.common.so.item.attribute.AttributeValueSo;
 import com.bucket.shop.common.vo.item.attribute.AttributeValueVo;
-import com.bucket.shop.model.item.attribute.AttributeValueDo;
+import com.bucket.shop.model.dbo.item.attribute.AttributeValueDo;
 
 public interface AttributeValueMapper {
 

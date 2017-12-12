@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.bucket.shop.common.so.item.sku.SkuImageSo;
 import com.bucket.shop.common.vo.item.sku.SkuImageVo;
-import com.bucket.shop.model.item.sku.SkuImageDo;
+import com.bucket.shop.model.dbo.item.sku.SkuImageDo;
 
 public interface SkuImageMapper {
 

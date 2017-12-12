@@ -5,7 +5,7 @@ import java.util.List;
 import com.bucket.shop.common.so.BaseSo;
 import com.bucket.shop.common.vo.BaseVo;
 import com.bucket.shop.dal.mapper.BaseMapper;
-import com.bucket.shop.model.BaseDo;
+import com.bucket.shop.model.dbo.BaseDo;
 
 public abstract class BaseDao<T extends BaseDo,V extends BaseVo> {
 

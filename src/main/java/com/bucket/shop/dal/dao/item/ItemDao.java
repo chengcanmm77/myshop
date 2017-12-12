@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.bucket.shop.common.so.item.ItemSo;
 import com.bucket.shop.common.vo.item.ItemVo;
 import com.bucket.shop.dal.mapper.item.ItemMapper;
-import com.bucket.shop.model.item.ItemDo;
+import com.bucket.shop.model.dbo.item.ItemDo;
 
 @Repository
 public class ItemDao {

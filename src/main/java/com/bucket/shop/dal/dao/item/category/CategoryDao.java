@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.bucket.shop.common.so.item.category.CategorySo;
 import com.bucket.shop.common.vo.item.category.CategoryVo;
 import com.bucket.shop.dal.mapper.item.category.CategoryMapper;
-import com.bucket.shop.model.item.category.CategoryDo;
+import com.bucket.shop.model.dbo.item.category.CategoryDo;
 
 @Repository
 public class CategoryDao {

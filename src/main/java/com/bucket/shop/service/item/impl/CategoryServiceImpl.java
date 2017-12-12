@@ -10,7 +10,7 @@ import com.bucket.shop.common.so.item.category.CategorySo;
 import com.bucket.shop.common.util.ConvetorUtil;
 import com.bucket.shop.common.vo.item.category.CategoryVo;
 import com.bucket.shop.dal.dao.item.category.CategoryDao;
-import com.bucket.shop.model.item.category.CategoryDo;
+import com.bucket.shop.model.dbo.item.category.CategoryDo;
 import com.bucket.shop.service.item.CategoryService;
 
 @Service

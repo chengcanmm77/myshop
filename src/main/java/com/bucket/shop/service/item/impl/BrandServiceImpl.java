@@ -10,7 +10,7 @@ import com.bucket.shop.common.so.item.brand.BrandSo;
 import com.bucket.shop.common.util.ConvetorUtil;
 import com.bucket.shop.common.vo.item.brand.BrandVo;
 import com.bucket.shop.dal.dao.item.brand.BrandDao;
-import com.bucket.shop.model.item.brand.BrandDo;
+import com.bucket.shop.model.dbo.item.brand.BrandDo;
 import com.bucket.shop.service.item.BrandService;
 
 public class BrandServiceImpl implements BrandService {
