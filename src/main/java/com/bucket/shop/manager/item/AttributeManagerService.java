@@ -2,8 +2,8 @@ package com.bucket.shop.manager.item;
 
 import java.util.List;
 
-import com.bucket.shop.model.request.item.AttrbuteManagerQueryRequest;
-import com.bucket.shop.model.request.item.AttributeQueryRequest;
+import com.bucket.shop.model.request.goods.AttrbuteManagerQueryRequest;
+import com.bucket.shop.model.request.goods.AttributeQueryRequest;
 import com.bucket.shop.model.ro.attribute.AttributeDataRo;
 import com.bucket.shop.model.ro.attribute.AttributeNameRo;
 import com.bucket.shop.model.ro.attribute.AttributeRo;
