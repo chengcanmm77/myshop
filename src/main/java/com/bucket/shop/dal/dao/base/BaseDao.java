@@ -18,7 +18,7 @@ public class BaseDao<T extends BaseDo> {
 
 	@SuppressWarnings("unchecked")
 	private Class<T> getGenericClass() {
-		return (Class<T>) getSuperClassGenricType(getClass());
+		return  getSuperClassGenricType(getClass());
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })

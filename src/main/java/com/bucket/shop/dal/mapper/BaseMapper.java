@@ -5,11 +5,13 @@ import java.util.List;
 import com.bucket.shop.common.so.BaseSo;
 import com.bucket.shop.model.dbo.BaseDo;
 
-public interface BaseMapper<T extends BaseDo> {
+public interface BaseMapper {
 
-	int insert(T object);
+	int insert(BaseDo object);
 	
-	int update(T object);
+	void insertList(List<BaseDo> objList);
+	
+	int update(BaseDo object);
 	
 	int deleteById(Long id);
 	
