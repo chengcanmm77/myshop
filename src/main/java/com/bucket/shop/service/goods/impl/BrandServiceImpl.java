@@ -1,18 +1,18 @@
 package com.bucket.shop.service.goods.impl;
 
-import java.util.List;
-
-import javax.annotation.Resource;
-
-import org.apache.commons.lang3.StringUtils;
-
 import com.bucket.shop.common.so.item.brand.BrandSo;
 import com.bucket.shop.common.util.ConvetorUtil;
 import com.bucket.shop.common.vo.item.brand.BrandVo;
 import com.bucket.shop.dal.dao.item.brand.BrandDao;
 import com.bucket.shop.model.dbo.goods.brand.BrandDo;
 import com.bucket.shop.service.goods.BrandService;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+import java.util.List;
+
+@Service
 public class BrandServiceImpl implements BrandService {
 
     @Resource

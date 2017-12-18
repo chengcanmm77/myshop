@@ -2,7 +2,6 @@ package com.bucket.shop.dal.mapper;
 
 import java.util.List;
 
-import com.bucket.shop.common.so.BaseSo;
 import com.bucket.shop.model.dbo.BaseDo;
 
 public interface BaseMapper {
@@ -17,8 +16,8 @@ public interface BaseMapper {
 	
 	int logicDeleteById(Long id);
 	 
-	T queryById(Long id);
+	BaseDo queryById(Long id);
 	
-	List<T> selectList(BaseSo so);
+	List<BaseDo> selectList(BaseDo object);
 	
 }
