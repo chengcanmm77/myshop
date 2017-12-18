@@ -11,26 +11,25 @@ public class AttributeRo extends BaseRo implements Serializable{
 	/**
      * 属性基础对象
      */
-    private AttributeNameRo       attrNameRO;
+    private AttributeNameRo       attrNameRo;
     /**
      * 属性对应属性值对象列表
      */
-    private List<AttributeValueRo> attrValueROList;
+    private List<AttributeValueRo> attrValueRoList;
 
-	public AttributeNameRo getAttrNameRO() {
-		return attrNameRO;
+	public AttributeNameRo getAttrNameRo() {
+		return attrNameRo;
 	}
 
-	public void setAttrNameRO(AttributeNameRo attrNameRO) {
-		this.attrNameRO = attrNameRO;
+	public void setAttrNameRo(AttributeNameRo attrNameRo) {
+		this.attrNameRo = attrNameRo;
 	}
 
-	public List<AttributeValueRo> getAttrValueROList() {
-		return attrValueROList;
+	public List<AttributeValueRo> getAttrValueRoList() {
+		return attrValueRoList;
 	}
 
-	public void setAttrValueROList(List<AttributeValueRo> attrValueROList) {
-		this.attrValueROList = attrValueROList;
+	public void setAttrValueRoList(List<AttributeValueRo> attrValueRoList) {
+		this.attrValueRoList = attrValueRoList;
 	}
-    
 }

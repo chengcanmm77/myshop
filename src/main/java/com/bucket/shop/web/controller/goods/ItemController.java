@@ -1,43 +1,31 @@
 package com.bucket.shop.web.controller.goods;
 
+import com.bucket.shop.model.ro.goods.ItemRo;
+import com.bucket.shop.service.goods.item.ItemService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.bucket.shop.common.so.item.ItemSo;
-import com.bucket.shop.common.vo.item.ItemVo;
+import javax.annotation.Resource;
 
 @Controller
-@RequestMapping("/item")
+@RequestMapping("/goods/item")
 public class ItemController {
 
-    @RequestMapping("/getItemById")
-    public String getItemById(Long id) {
+    @Resource
+    private ItemService itemService;
 
-        return "item_detail";
+    @RequestMapping("create")
+    public ItemRo create(ItemRo ro){
+        return null;
     }
 
-    @RequestMapping("/queryItemList")
-    public String queryItemList(ItemSo itemSo) {
-        return "item_list";
+    public ItemRo queryById(Long id){
+        return null;
     }
 
-    @RequestMapping("/createItem")
-    public String createItem(ItemVo itemVo) {
-        return "";
+    public Boolean deleteById(Long id){
+
+        return null;
     }
 
-    @RequestMapping("/updateItem")
-    public String updateItem(ItemVo itemVo) {
-        return "";
-    }
-
-    @RequestMapping("/deleteById")
-    public String deleteById(Long id) {
-        return "";
-    }
-
-    @RequestMapping("/delete")
-    public String delete(ItemSo itemSo) {
-        return "";
-    }
 }
